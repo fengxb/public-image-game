@@ -90,6 +90,65 @@
             z-index: 2;
         }
 
+		/* 头部横幅容器 */
+        .banner-wrap {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            border-radius: 14px;
+            overflow: hidden;
+            border: 2px solid #b89648;
+        }
+        /* Banner底图（无文字纯人物图替换此处src） */
+        .banner-bg {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        /* 通用名牌样式 */
+        .name-tag {
+            position: absolute;
+            /* 文字样式 三国鎏金古风 */
+            color: #f8e4a6;
+            font-family: "Microsoft Yahei", sans-serif;
+            text-shadow: 0 0 8px #8b6b28, 1px 1px 3px #000;
+            background: rgba(0,0,0,0.55);
+            padding: 6px 16px;
+            border-radius: 20px;
+            border: 1px solid rgba(216, 176, 80, 0.6);
+            white-space: nowrap;
+            transform: translate(-50%, 0);
+        }
+        /* 顶部大标题：小篆字体 惊蛰话事人 */
+        .banner-title {
+            position: absolute;
+            top: 6%;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: clamp(26px, 5vw, 52px);
+            font-family: "STXingkai", "方正小篆体", serif;
+            color: #ffdd88;
+            text-shadow: 0 0 12px #946c20;
+            letter-spacing: 6px;
+        }
+        /* 三个人物ID定位（百分比定位，自适应缩放） */
+        .tag-rabbit {
+            left: 16%;
+            bottom: 10%;
+            font-size: clamp(14px, 1.8vw, 22px);
+        }
+        .tag-nandi {
+            left: 50%;
+            bottom: 10%;
+            font-size: clamp(14px, 1.8vw, 22px);
+        }
+        .tag-xidu {
+            left: 84%;
+            bottom: 10%;
+            font-size: clamp(14px, 1.8vw, 22px);
+        }
+
         /* 导航按钮 */
         .nav-group {
             display: grid;
@@ -219,6 +278,16 @@
             <p>同心聚力｜拒绝内耗｜福利透明｜长期稳定｜诚招各路英才</p-->
         </div>
 
+		<div class="banner-wrap">
+        <!-- 纯人物无文字底图，替换为你的三国三人Banner图片地址 -->
+        <img class="banner-bg" src="https://cdn.jsdelivr.net/gh/fengxb/public-image-game@main/huashiren.png" alt="惊蛰话事人三国形象">
+        <!-- 小篆大标题 -->
+        <div class="banner-title">惊蛰话事人</div>
+        <!-- 动态悬浮名牌，百分比定位自适应所有屏幕 -->
+        <div class="name-tag tag-rabbit">惊蛰丨兔子</div>
+        <div class="name-tag tag-nandi">惊蛰ℓ南帝</div>
+        <div class="name-tag tag-xidu">惊蛰丨西毒</div>
+    	</div>
         <!-- 全局导航 -->
         <div class="nav-group">
             <a href="#intro" class="fluent-card nav-btn">📖 同盟简介</a>
