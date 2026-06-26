@@ -268,10 +268,68 @@
 		    color: #b4c8f0;
 		    font-size: 14px;
 		}
+		/* 回到顶部边栏 */
+.back-to-top {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 999;
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.back-to-top:hover {
+    border-color: rgba(255, 255, 255, 0.25);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top svg {
+    width: 24px;
+    height: 24px;
+    fill: #94b8ff;
+}
+
+/* 响应式适配手机 */
+@media (max-width: 768px) {
+    .back-to-top {
+        width: 44px;
+        height: 44px;
+        right: 15px;
+        bottom: 15px;
+    }
+    .back-to-top svg {
+        width: 20px;
+        height: 20px;
+    }
+}
     </style>
 </head>
 <body>
     <div class="container">
+		<!-- 回到顶部按钮 -->
+<div class="back-to-top" id="backToTop">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path d="M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14l-6-6z"/>
+    </svg>
+</div>
         <!-- 顶部宣传Banner -->
         <div class="banner fluent-card">
             <!--h1>聚力同行 共赴巅峰</h1>
@@ -914,5 +972,26 @@
             </p>
         </div>
     </div>
+	<script>
+    // 回到顶部功能
+    const backToTopBtn = document.getElementById('backToTop');
+    
+    // 滚动显示/隐藏按钮
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            backToTopBtn.classList.add('show');
+        } else {
+            backToTopBtn.classList.remove('show');
+        }
+    });
+    
+    // 点击回到顶部
+    backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+</script>
 </body>
 </html>
